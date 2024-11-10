@@ -1,8 +1,7 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Home, PlusSquare, User, LogOut, 
-  Trophy, Calendar, Settings, Bell,
-  PlayCircle
+  Trophy, Bell
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useDemo } from '../contexts/DemoContext';
@@ -58,7 +57,7 @@ export function Layout() {
             {/* Demo Mode Indicator */}
             {isDemo && (
               <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-green-600/20 text-green-400 rounded-full border border-green-600/20">
-                <PlayCircle size={16} />
+                <Trophy size={16} />
                 <span className="text-sm font-medium">Demo Mode</span>
               </div>
             )}

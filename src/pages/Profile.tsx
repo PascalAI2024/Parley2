@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { 
-  User, Mail, Settings, History, TrendingUp, DollarSign,
+  User, Mail, Settings, TrendingUp, DollarSign,
   Trophy, BarChart3, Bell, Shield, Key, ArrowRight
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';

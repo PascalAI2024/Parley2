@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { 
   Trophy, CircleDot, Dumbbell, Gamepad2,
-  Plus, X, TrendingUp, AlertTriangle, 
-  DollarSign, BarChart3, ArrowRight,
+  Plus, X, TrendingUp, 
+  DollarSign, ArrowRight,
   Brain, ChartBar, Sparkles
 } from 'lucide-react';
 import { useDemo } from '../contexts/DemoContext';
