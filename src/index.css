@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-secondary text-white min-h-screen font-sans;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-primary-dark transition-colors duration-200
+           flex items-center justify-center gap-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           relative overflow-hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-200;
+  }
+
+  .btn-primary:hover::after {
+    @apply opacity-10;
+  }
+
+  .card {
+    @apply bg-secondary-light rounded-lg p-6 border border-white/5
+           hover:border-primary/20 transition-colors duration-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-secondary-dark border border-white/10 rounded-lg
+           text-white placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400
+           hover:bg-primary/10 hover:text-primary transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply bg-primary text-white;
+  }
+
+  /* Basketball-inspired elements */
+  .ball-texture {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(232, 92, 51, 0.1),
+      rgba(232, 92, 51, 0.1) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  }
+
+  .diagonal-split {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diagonal-split::after {
+    content: '';
+    @apply absolute top-0 right-0 w-1/2 h-full bg-primary/10 -skew-x-12;
+  }
+
+  /* Stats card with glow effect */
+  .stats-card {
+    @apply card relative;
+    box-shadow: 0 0 20px rgba(232, 92, 51, 0.1);
+  }
+
+  .stats-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-lg;
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  /* Animated button */
+  .btn-animated {
+    @apply btn-primary relative;
+    background-size: 200% 200%;
+    background-image: linear-gradient(
+      45deg,
+      theme('colors.primary.DEFAULT') 0%,
+      theme('colors.primary.dark') 50%,
+      theme('colors.primary.DEFAULT') 100%
+    );
+    animation: gradient 4s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Score display */
+  .score-display {
+    @apply flex items-center justify-center text-4xl font-display font-bold
+           bg-secondary-dark rounded-lg p-4 border-b-4 border-primary;
+  }
+
+  /* Team logo container */
+  .team-logo {
+    @apply w-16 h-16 rounded-full bg-secondary-light flex items-center justify-center
+           border-2 border-primary/30;
+  }
+
+  /* Match card */
+  .match-card {
+    @apply card hover:scale-102 transition-transform duration-200
+           hover:shadow-lg hover:shadow-primary/5;
+  }
+
+  /* Membership pricing card */
+  .pricing-card {
+    @apply card relative overflow-hidden;
+  }
+
+  .pricing-card.featured::before {
+    content: 'POPULAR';
+    @apply absolute top-4 right-4 bg-primary text-white text-xs font-bold
+           px-2 py-1 rounded transform rotate-12;
+  }
+
+  /* Stat progress bar */
+  .stat-progress {
+    @apply h-2 bg-secondary-dark rounded-full overflow-hidden;
+  }
+
+  .stat-progress-bar {
+    @apply h-full bg-primary transition-all duration-500 ease-out;
+  }
+
+  /* Notification badge */
+  .notification-badge {
+    @apply absolute -top-1 -right-1 w-5 h-5 bg-primary rounded-full
+           flex items-center justify-center text-xs font-bold text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full hover:bg-primary/70;
+}
